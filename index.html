@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Books</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794'); /* replace with your image */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 20px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeInDown 2s ease-out;
+    }
+
+    .author-name {
+      font-size: 1.5em;
+      color: #00c3ff;
+      animation: pulse 2s infinite;
+    }
+
+    .motivational {
+      font-style: italic;
+      margin: 20px 0;
+      font-size: 1.3em;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+    }
+
+    .book-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .book {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .book:hover {
+      transform: scale(1.05);
+    }
+
+    .book h3 {
+      margin-bottom: 10px;
+    }
+
+    .book button {
+      background-color: #00c3ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .book button:hover {
+      background-color: #008bbf;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      margin-top: 40px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+        <h1>Welcome to My Book World</h1>
+        <div class="author-name">
+          <i>
+            <u>
+              <a href="https://www.instagram.com/kaushik__bedant?igsh=MWFldzl1M2JkaTltbA==" target="_blank" style="color: #00c3ff; text-decoration: underline;">
+                By Bedanta Kaushik Dash
+              </a>
+            </u>
+          </i>
+        </div>
+        <div class="motivational">"A book is a dream you hold in your hands." – Neil Gaiman</div>
+        <p>Reading helps you escape, learn, grow, and become the best version of yourself. Explore my collection of heartfelt stories and life-changing ideas.</p>
+      </header>
+      
+
+    <section>
+      <h2>My Books</h2>
+      <div class="book-list" id="bookList">
+        <!-- Books will be added by JavaScript -->
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 bedanta_kaushik_dash. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    const books = [
+      {
+        title: "More Than Just a Feeling",
+        link: "your-download-link-here.pdf"
+      },
+      {
+        title: "A Love Worth Fighting For",
+        link: "another-download-link.pdf"
+      },
+      {
+    title: "Unspoken Battle",
+    link: "the-unspoken-battle"
+  },
+      {
+        title: "Coming Soon...",
+        link: "#"
+      }
+    ];
+
+    const bookList = document.getElementById('bookList');
+    books.forEach(book => {
+      const bookEl = document.createElement('div');
+      bookEl.className = 'book';
+      bookEl.innerHTML = `
+        <h3>${book.title}</h3>
+        <button onclick="window.location.href='${book.link}'">Download</button>
+      `;
+      bookList.appendChild(bookEl);
+    });
+  </script>
+</body>
+</html>
